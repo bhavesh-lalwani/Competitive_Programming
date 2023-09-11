@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    std::ios::sync_with_stdio(false);    
+    cin.tie(NULL);
+    int n,temp, twos=0,ones=0;
+    cin>>n;
+    for(int i=0;i<n;++i){
+        cin>>temp;
+        if(temp==1) ones++;
+        else    twos++;
+    }
+    int x=min(ones,twos);
+    cout<< max( x+(ones-x)/3, ones/3);
+    return 0;
+}
