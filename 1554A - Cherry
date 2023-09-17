@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t,n;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        vector<int> a(n);
+        long long  res=INT_MIN,m;
+        for(int i=0; i<n;++i)   cin>>a[i];
+        for(int i=0;i<n-1;i++){
+            m=(long long )max(a[i],a[i+1])*min(a[i],a[i+1]);
+            res=(long long)max(m,res);
+        }
+        cout<<res<<"\n";
+    }
+    return 0;
+}
