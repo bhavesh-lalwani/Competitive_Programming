@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool check_a_freq(string s){
+    int a=0;
+    for(int i=0; i<s.length(); ++i){
+        if(s[i]=='a')   a++;
+    }
+    if(a==s.length())   return true;
+    else    return false;
+}
+bool check_pal(string s){
+    string rev=s;
+    reverse(rev.begin(), rev.end());
+    if(rev == s)    return true;
+    else    return false;
+}
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    string s;
+    cin>>t;
+    while(t--){
+        cin>>s;
+        if(check_pal(s) == false){
+            if(check_pal("a"+s) == false){
+                cout<<"YES\n";
+                cout<<"a"+s<<"\n";
+            }
+            else if(check_pal(s+"a") == false){
+                cout<<"YES\n";
+                cout<<s+"a"<<"\n";
+            }
+            else    cout<<"NO\n";
+        }
+        else{
+            if(check_a_freq(s))  cout<<"NO\n";
+            else    cout<<"YES\na"+s<<"\n";
+        }
+    }
+    return 0;
+}
