@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool check(int n){
+    bool f=false;
+    while(n){
+        if(n%10 != 7 && n%10 != 4){
+            f=true;
+            break;
+        }
+        n /= 10;
+    }
+    return (f)?false:true;
+}
+bool s[1001];
+void sieve(){
+    for(int i=1; i<=1000; ++i){
+        if(check(i))    s[i]=true;  //true or value set if i is totally lucky
+    }
+}
+int main(){
+    std::ios::sync_with_stdio(false);    
+    cin.tie(NULL);
+    int n;    
+    cin>>n;
+    bool t=false;
+    sieve();
+    if(s[n]==true)  t=true;    
+    else{
+        for(int i=1; i<n; ++i){
+            if(s[i]==true && n%i == 0){
+                t=true;
+                break;
+            }
+        }
+    }
+    (t)?cout<<"YES":cout<<"NO";
+    return 0;
+}
