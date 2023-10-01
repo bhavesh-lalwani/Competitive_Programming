@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    std::ios::sync_with_stdio(false);    
+    cin.tie(NULL);
+    int t;
+    string s;
+    cin>>t;
+    while(t--){
+        cin>>s;
+        string a="", b="";
+        char ch = *min_element(s.begin(), s.end());
+        a.push_back(ch);
+        bool in_a = true;
+        for(int i=0; i<s.length(); ++i){
+            if(s[i]==ch && in_a){
+                in_a = false;
+                continue;
+            }
+            b.push_back(s[i]);
+        }
+        cout<<a<<" "<<b;
+        cout<<"\n";
+    }
+    return 0;
+}
