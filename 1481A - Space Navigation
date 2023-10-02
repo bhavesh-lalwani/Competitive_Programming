@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    std::ios::sync_with_stdio(false);    
+    cin.tie(NULL);
+    int t,x,y;
+    cin>>t;
+    string s;
+    while(t--){
+        cin>>x>>y>>s;
+        int u=0, d=0, l=0, r=0;
+        bool can_go = true;
+        for(int i=0; i<s.length(); ++i){
+            if(s[i]=='U')   u++;
+            else if(s[i]=='D')  d++;
+            else if(s[i]=='L')  l++;
+            else if(s[i]=='R')  r++;
+        }
+        if((x>0 && r<x) || (x<=0 && l<abs(x)))  can_go=false;
+        if((y>0 && u<y) || (y<=0 && d<abs(y)))  can_go =false;
+        (can_go)?cout<<"YES\n":cout<<"NO\n";
+    }
+    return 0;
+}
