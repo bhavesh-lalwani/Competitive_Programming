@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    std::ios::sync_with_stdio(false);    
+    cin.tie(NULL);
+    int t,x,y;
+    cin>>t;
+    string s;
+    while(t--){
+        cin>>s;
+        for(int i=0; i<s.length(); ++i){
+            if(i&1){
+                //bob's turn to maximize the string
+                if(s[i]!= 'z')  s[i]='z';
+                else    s[i]='y';
+            }
+            else{
+                //Alice's turn to lexographically minimize the string
+                if(s[i] != 'a') s[i] = 'a' ;
+                else    s[i] = 'b';
+            }
+        }
+        cout<<s<<"\n";
+    }
+    return 0;
+}
