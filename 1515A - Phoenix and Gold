@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+void print_vec(vector<int> a){
+    for(int i=0; i<a.size(); ++i)  cout<<a[i]<<" ";
+    cout<<"\n";
+}
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int t, n, x;
+    cin>>t;
+    while(t--){
+        int sum = 0, temp;
+        cin>>n>>x;
+        bool no = false;
+        vector<int> a(n);
+        for(int i=0; i<n; ++i)  cin>>a[i];
+        sort(a.begin(), a.end(), greater<int>());
+        if(a[0] > x){
+            //if 1st element itself is greater, sum can't be equal to x anytime
+        }
+        else{
+            for(int i=0; i<n; ++i){
+                sum += a[i];
+                if(sum == x){
+                    if(i==n-1){
+                        cout<<"NO\n";
+                        no = true;
+                        break;
+                    }
+                    else{
+                        sum = sum - a[i] + a[i+1];
+                        temp= a[i+1];
+                        a[i+1] = a[i];
+                        a[i] = temp;
+                    }
+                }                
+            }
+        }
+        if(!no){
+            cout<<"YES\n";
+            print_vec(a);
+        }
+    }
+    return 0;
+}
