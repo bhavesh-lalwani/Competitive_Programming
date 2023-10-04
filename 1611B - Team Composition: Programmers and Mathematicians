@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vi vector<int>
+int main(){
+    std::ios::sync_with_stdio(false);    
+    cin.tie(NULL);
+    int t;
+    long long a, b;
+    cin>>t;
+    while(t--){
+        cin>>a>>b;
+        cout << min({(a+b)/4, a, b}) << "\n";
+    }
+    return 0;
+}
