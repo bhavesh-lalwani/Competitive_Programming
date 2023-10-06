@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vi vector<int>
+#define ll long long
+
+int main(){
+    std::ios::sync_with_stdio(false);    
+    cin.tie(NULL);
+    int n,k,j=0,prev=0;
+    cin>>n>>k;
+    vector<int> a(k), pool(n*k);
+    for(int i=0; i<n*k; ++i)   pool[i]=i+1;
+    for(int i=0; i<k; ++i){
+        cin>>a[i];
+        pool.erase(find(pool.begin(), pool.end(), a[i]));
+    }
+    for(int i=0; i<k; ++i){
+        cout<<a[i]<<" ";
+        prev = j ;
+        for( ; j!= prev + n -1; ++j)    cout<<pool[j]<<" ";
+        cout<<"\n";
+    }
+    return 0;
+}
