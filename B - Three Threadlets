@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define vi vector<int>
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);    
+    int t, a, b, c, least;
+    cin>>t;
+    while(t--){
+        int ops = 3;
+        cin>>a>>b>>c;
+        least = min({a,b,c});        
+        while(a != least && ops!=0){
+            a -= least;
+            ops--;
+        }
+        while(b != least && ops!=0){
+            b -= least;
+            ops--;
+        }
+        while(c != least && ops!=0){
+            c -= least;
+            ops--;
+        }
+        (a!=least || (b!=least || c!=least))?cout<<"NO\n":cout<<"YES\n";
+        
+    }
+    return 0;
+}
